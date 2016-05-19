@@ -1,0 +1,42 @@
+
+<!-- CSS -->
+
+
+
+ .page  {'background-color': 'white ', color:'white' }  
+
+ .footer {'background-color': '#ffa000 ', color:'#757575' }  
+ .header  {'background-color': '#ffa000 ', color:'#757575' }  
+ a   {'background-color': '#ffa000', color:'black' }  
+  em    {'background-color': '#6482B9', color:'#F0FFF0' } 
+   h3   {'background-color': '#7986cb', color:'#ffa000' }  
+ 
+
+table {
+color : black ; 
+background : #fff ; 
+border : 1px solid #b4b4b4 ; 
+font: bold 17px helvetica; 
+padding : 0; 
+margin-top :10px; 
+width:100%; -webkit-border-radius:8px}
+
+table {'background-color': '#ffd54f', color:'black' } 
+
+table tr td {
+ color : #666; 
+ border-bottom : 1px solid #b4b4b4;
+ padding : 10px 10px 10px 10px;
+ background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+}
+
+
+table tr td:last-child{
+border-right: none;
+}
+
+table tr : last-child td{
+border-bottom :none;
+}
+
+em { margin:10 px;padding-top:5px;border:2px solid #666; }

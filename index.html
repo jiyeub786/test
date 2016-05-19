@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+<title>홈 제어</title>
+
+<!-- 제이쿼리 모바일, 제이쿼리 라이브러리 파일 -->
+<link rel="stylesheet" href="./script/jquery/jquery.mobile-1.4.5.min.css" />
+ 
+<script src="./script/jquery/jquery-1.11.1.min.js"></script>
+<script src="./script/jquery/jquery.mobile-1.4.5.min.js"></script>
+  <script src="./script/socket.io/socket.io.js"></script>
+<!-- 사용자 정의 자바스크립트 파일 -->
+<script src="./script/source/url.js"></script>
+<script src="./script/source/main.js"></script>
+<script src="./script/source/variables.js"></script>
+<script src="./script/source/view.js"></script>
+ 
+ <link rel="stylesheet" href="./script/source/common.css" type="text/css"/>
+<style>
+.img1 { 
+  width :  400px ; 
+  height :  100px ; 
+  overflow : auto ; 
+  margin : auto ; 
+  position : absolute ; 
+  top :  0 ;  left :  0 ;  bottom :  0 ;  right :  0 ; 
+}
+</style>
+</head>  
+<body>
+
+<!-- 시작 화면 -->
+<div class =page data-role="page" id="disconnect"> 
+
+<div data-role="content">
+  <p>
+<img src="./img/loading.gif" class =img1>
+</p>
+
+</div>
+
+ </div>
+
+  <div class =page data-role="page" id="page0">
+	<div class="header" data-role="header" data-position="fixed">
+		<h1>홈 제어</h1>
+		<a href="#page0" data-icon="home" data-iconpos="notext" class="ui-btn-right">Home</a>
+	</div>
+
+	<div data-role="content" >
+	
+<h3 id="STATE_DEVICE">device connection is disconneted</h3>
+<table class=table>
+<tr><td>온도</td><td class="board_temp">nul</td><td>습도</td><td class="board_humi">null</td></tr>
+<tr><td>강수량</td><td class="board_rain">nul</td><td>자외선</td><td class="board_uv">null</td></tr>
+<tr><td>일광량</td><td class="board_light">null</td><td>가스</td><td class="board_gas">null</td></tr>
+<tr><td>안방</td><td class="board_liv">nul</td><td>부엌</td><td class="board_kit">null</td></tr>
+<tr><td>화장실</td><td class="board_bat">null</td><td>현관</td><td class="board_out">null</td></tr>
+<tr><td>창문</td><td class="board_window">null</td><td>커튼</td><td class="board_cutton">null</td></tr>
+<td>택배</td><td class="board_box">null</td></tr>
+
+</table>
+ 
+
+ 
+
+
+
+		<ul data-role="listview" data-inset="true">
+			<li><a href="#page1">조명제어</a></li>
+			<li><a href="#page2">창문 커튼 가스 제어</a></li>
+			<li><a href="#page3">가스제어</a></li>
+			
+		</ul>
+	</div>
+	
+  <div class="footer" data-role="footer" data-position="fixed">
+		<h4>성공회대 사물인터넷 소모임</h4>
+    </div>
+  </div>
+
+ 
+ <!-- LED --> 
+
+  <div data-role="page" id="page1">
+	<div class="header" data-role="header" data-position="fixed">
+		<a href="#page0" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+		<h1>조명제어</h1>
+		<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#page1">조명제어</a></li>
+				<li><a href="#page2">창문 커튼 가스 제어</a></li>
+				<li><a href="#page3">가스제어</a></li>
+				   
+			</ul>
+		</div>
+	</div>
+ <!-- 머리 -->
+
+	<div  data-role="content">
+			<h3>조명제어</h3>
+
+
+			<table>
+<tr><td>안방</td><td class="board_liv">nul</td><td>부엌</td><td class="board_kit">null</td></tr>
+<tr><td>화장실</td><td class="board_bat">null</td><td>현관</td><td class="board_out">null</td></tr>
+</table>
+
+
+
+  <div class="ui-grid-b">
+  <div class="ui-block-a">
+<h3> 거실 </h3>
+ <button  data-icon="eye" id="btn_liv_on"  >on</button><button data-icon="delete" id="btn_liv_off" >off</button>
+    </div>
+  <div class="ui-block-b">
+<h3> 주방  </h3>
+<button data-icon="eye" id="btn_kit_on" >on</button><button data-icon="delete" id="btn_kit_off" >off</button> 
+ </div>
+  <div class="ui-block-c">
+<h3> 화장실 </h3>
+<button data-icon="eye" id="btn_bat_on" >on</button><button data-icon="delete" id="btn_bat_off" >off</button>
+</div> 
+<div class="ui-block-a">
+<h3> 현관 </h3>
+
+<button data-icon="eye" id="btn_out_on" >on</button><button data-icon="delete" id="btn_out_off" >off</button>
+       
+</div>
+<div class="ui-block-b">
+ 
+<h3> 모든 조명 </h3>
+<button data-icon="eye" id="btn_all_on" >on</button><button data-icon="delete" id="btn_all_off" >off</button> 
+       
+</div>
+</div>	
+
+
+
+</div>
+</div>
+ </div> 
+ 
+
+
+<div class="footer" data-role="footer" data-position="fixed">
+		<h4>성공회대 사물인터넷 소모임</h4>
+    </div>
+
+ </div>
+
+
+
+
+<!-- 커튼 창문-->
+ 
+  <div class =page data-role="page" id="page2">
+	<div class="header" data-role="header" data-position="fixed">
+		<a href="#page0" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+		<h1>커튼 창문제어</h1>
+		<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#page1">조명제어</a></li>
+				<li><a href="#page2">창문 커튼 가스 제어</a></li>
+				<li><a href="#page3">가스제어</a></li>
+				   
+			</ul>
+		</div>
+	</div>
+ <!-- 머리 -->
+
+	<div data-role="content">
+<h3>창문 커튼 가스 제어</h3>
+<table>
+<tr><td>창문</td><td class="board_window">null</td><td>커튼</td><td class="board_cutton">null</td><td>가스</td><td class="board_gas">null</td></tr>
+</table>
+		<div class="ui-grid-b">
+  <div class="ui-block-a">	
+			 
+				  
+<h3> 창문 </h3> 
+<button data-icon="carat-r" id="btn_window_open" >open</button><button data-icon="lock" id="btn_window_close" >close</button>
+         
+ </div>
+
+  <div class="ui-block-b">
+<h3 > 커튼 </h3> 
+<button data-icon="arrow-u"id="btn_cutton_up" >up</button><button data-icon="arrow-d" id="btn_cutton_down" >down</button>
+</div>
+  <div class="ui-block-c">
+      	 
+			 	
+<h3>가스 </h3> 
+<button data-icon="carat-r" id="btn_gas_open" >open</button><button data-icon="lock" id="btn_gas_close" >close</button>
+         	  
+</div >
+</div>
+ </div> 
+ 
+
+
+<div class="footer" data-role="footer" data-position="fixed">
+		<h4>성공회대 사물인터넷 소모임</h4>
+    </div>
+</div>
+
+
+
+
+<!-- 가스-->
+
+
+  <div class =page data-role="page" id="page3">
+	<div class="header" data-role="header" data-position="fixed">
+		<a href="#page0" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+		<h1>가스제어</h1>
+		<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+		<div   data-role="navbar">
+			<ul  >
+				<li ><a href="#page1">조명제어</a></li>
+				<li><a href="#page2">창문 커튼 가스 제어</a></li>
+				<li><a href="#page3">가스제어</a></li>
+				   
+			</ul>
+		</div>
+	</div>
+ <!-- 머리 -->
+
+	<div data-role="content">
+			<table>
+<tr><td>택배함 상태</td><td class="board_box">null</td><td>비밀번호</td><td class="board_boxpw">null</td><td>실패</td><td class="board_boxerr">null</td></tr>
+</table>
+<h3>BOX </h3> 
+<button data-icon="carat-r" id="btn_box_open" >open</button><button data-icon="lock" id="btn_box_close" >close</button>
+</div>
+  
+ 
+
+
+<div class="footer" data-role="footer" data-position="fixed">
+		<h4>성공회대 사물인터넷 소모임</h4>
+   
+</div></div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

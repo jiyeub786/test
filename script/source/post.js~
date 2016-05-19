@@ -1,0 +1,57 @@
+
+function post_light(data,value){
+
+console.log("post_light()");
+
+$.ajax({  type: "GET",dataType:"jsonp", url: url()+'light/'+data+'/'+value })
+.done(function( data ) {        console.log(data);    }) ;
+}
+
+<!--send weather command -->
+function post_weather(){
+
+console.log("post_weather()");
+
+$.ajax({
+    type: 'GET',dataType:"jsonp"
+    url: url()+'weather'
+   
+}).done(function( data ) {        console.log(data);    }) ;
+}
+
+<!--send window command -->
+function post_window(value){
+
+console.log("post_window()");
+
+$.ajax({
+    type: 'GET',dataType:"jsonp"
+    url: url()+'window/'+value
+   
+}).done(function( data ) {        console.log(data);    }) ;
+}
+<!--send cutton command -->
+function post_cutton(value){
+
+console.log("post_cutton()");
+
+$.ajax({
+    type: 'GET',dataType:"jsonp"
+    url: url()+'cutton/'+value
+   
+}).done(function( data ) {        console.log(data);    }) ;
+}
+
+
+<!--send gas command -->
+
+function post_gas(value){
+
+console.log("post_gas()");
+$.ajax({
+    type: 'GET',dataType:"jsonp"
+    url: url()+'gas/'+value
+   
+}).done(function( data ) {        console.log(data);    }) ;
+}
+

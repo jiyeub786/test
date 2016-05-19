@@ -1,0 +1,26 @@
+
+<!--command -->
+var ON="on";
+var OFF="off";
+var OPEN="open";
+var CLOSE="close";
+var UP="up";
+var DOWN="down";
+
+var none="null";
+var time;
+
+<!--state-->
+var state_light_liv;
+var state_light_bath;
+var state_light_out;
+var state_light_kit;
+
+var state_weather1;
+var state_weather2;
+var state_weather3;
+var state_weather4;
+var state_box;
+var state_gas;
+var state_cutton;
+var state_window;
